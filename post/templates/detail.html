@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  this is the details page
+{% endblock %}
+
+{% block body %}
+  {{ post.title_text }} <br />
+  {% for comment in post.comment.all %}
+    {{ comment.date_created }} | comments: {{ comment.post }}
+  {% endfor %}
+  <form action="{% url 'post:create' %}" method="POST">
+  <form action="{% url 'post:update' %}" method="POST">
+{% endblock %}
